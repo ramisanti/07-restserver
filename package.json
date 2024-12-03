@@ -1,10 +1,11 @@
 {
   "name": "07-restserver",
   "version": "1.0.0",
-  "description": "",
-  "main": "index.js",
+  "description": "pruebas básicas para crear un rest server basico.",
+  "main": "app.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node app.js"
   },
   "keywords": [],
   "author": "",
@@ -12,6 +13,8 @@
   "dependencies": {
     "cors": "^2.8.5",
     "dotenv": "^16.4.5",
-    "express": "^4.21.1"
+    "express": "^4.21.1",
+    "mongoose": "^8.8.3",
+    "nodemon": "^3.1.7"
   }
 }
