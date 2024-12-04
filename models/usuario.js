@@ -12,6 +12,9 @@ const UsuarioSchema = Schema ({
         type: String,
         required:[true,'El contraseña es obligatorio']
     },
+    email:{
+        type: String
+    },
     img:{
         type: String
     },
@@ -19,7 +22,6 @@ const UsuarioSchema = Schema ({
         type: String,
         required:true,
         enum: ['ADMIN','USER']
-
     },
     estado:{
         type: Boolean,

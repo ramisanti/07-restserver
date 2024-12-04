@@ -7,7 +7,7 @@ const dbConnection = async () =>{
                 serverSelectionTimeoutMS: 5000,
                 serverApi: { version: '1', strict: true, deprecationErrors: true },
             });
-            await mongoose.connection.db.admin().command({ ping: 1 });
+
             console.log('Connected to MongoDB');
         
     } catch (error) {

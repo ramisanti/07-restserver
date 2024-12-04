@@ -22,8 +22,10 @@ const usuariosPost = async (req , res = response) => {
 
     try {
         await usuario.save();
+        console.log("Registro grabado!!");
+
     } catch (error) {
-        console.log(error);
+        console.log("Error en la actualizacion!!");
     }
 }
 const usuariosPut = (req, res = response) => {
