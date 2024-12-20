@@ -8,10 +8,10 @@ const dbConnection = async () =>{
                 serverApi: { version: '1', strict: true, deprecationErrors: true },
             });
 
-            console.log('Connected to MongoDB');
+            console.log('Conexión exitosa a MongoDB!!');
         
     } catch (error) {
-        console.error('Error connecting to MongoDB:', error);
+        console.error('Error conectando a MongoDB:', error);
     }
    
 }

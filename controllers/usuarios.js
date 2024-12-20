@@ -1,3 +1,4 @@
+
 const { response , request } = require ('express');
 const Usuario = require ('../models/usuario');
 const bcryptjs = require('bcryptjs');
@@ -5,7 +6,7 @@ const bcryptjs = require('bcryptjs');
 const usuariosGet = async (req = request, res = response) => {
     //const {q, nombre="", apikey, page=1, limit} = req.query;
     const qry = {estado:true};
-    const {limite = 5, desde=0} = req.query;
+    const {limite = 0, desde=0} = req.query;
     
     // const usuarios = await Usuario.find(qry)
     // .skip(Number(desde))
@@ -70,15 +71,27 @@ const usuariosPut = async (req, res = response) => {
 }
 
 const usuariosDelete = async (req, res = response) => {
-    const { id } = req.params;
-    
-    //se borra físicamente
-    //const usuario = await Usuario.findByIdAndDelete(id);
+    try {
+        
+        const { id } = req.params;
+        const { usuarioauth } = req;
+       
+        //solo se cambia su estado a false
+        const usuario = await Usuario.findByIdAndUpdate(id, {estado:false} );
 
-    //solo se cambia su estado a false
-    const usuario = await Usuario.findByIdAndUpdate(id,{estado:false});
-
-    res.json( usuario );
+        //se imprime el usuario borrado y quien lo borró
+        res.json({
+            usuario,
+            usuarioauth
+        });
+        
+        } catch (error) {
+            res.json({
+                msg: 'api DELETE - error',
+                error
+            }); 
+            
+        }
 }
 
 const usuariosPatch = (req, res = response) => {
